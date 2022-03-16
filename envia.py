@@ -9,16 +9,16 @@ import smtplib
 
 
 
-with open('enviandoemail/template.html', 'r', encoding='utf-8') as html:
+with open('enviaemail/E-mail-python/template.html', 'r', encoding='utf-8') as html:
     template = Template(html.read())
     data_atual = datetime.now().strftime('%d/%m/%Y')
-    corpo_msg = template.substitute(nome='Cley', data=data_atual)
+    corpo_msg = template.substitute(nome='', data=data_atual)
 
 #CONFIGURAÇÃO DO ENVIO DA MENSAGEM
 msg = MIMEMultipart()
-msg['from'] = 'NOME DE QUEM ENVIOU'
-msg['to'] = 'EMAIL DE QUEM VAI RECEBER SUA MENSAGEM'  
-msg['subject'] = 'ASSUNTO DO EMAIL'
+msg['from'] = 'Nome de quem enviou o e-mail'
+msg['to'] = 'E-mail de quem vai receber a mensagem'  
+msg['subject'] = 'Assunto do e-mail'
 
 #MENSAGEM QUE DESEJA ENVIAR
 corpo = MIMEText('template.html', html)
